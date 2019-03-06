@@ -8,8 +8,8 @@ y1 = -L; y2 = L;
 theta = linspace(0, 2*pi, 100);
 
 % Plan d'experience
-n_samples = 100;
-dim = 3;
+n_samples = 5;
+dim = 1;
 samples = zeros(n_samples, dim);
 step = 2*L / n_samples;
 values = zeros(n_samples, 1);
@@ -27,7 +27,7 @@ coef_min = samples(index, :);
 lb = -L*ones(1,dim);
 ub = L*ones(1,dim);
 nvars = dim;
-opts = optimoptions('particleswarm','MaxIterations',1000);
+opts = optimoptions('particleswarm','MaxIterations',20);
 
 num_iter = 10;
 
@@ -61,13 +61,13 @@ end
 % surf(X, Y, Z);
 
 %% 1-D PLOT
-% x1 = linspace(-L,L,100);
-% z = zeros(1,100);
-% for i=1:100
-%    z(i) =  EI([x1(i)], min_y, k);
-% end
-% 
-% plot(x1, z)
+x1 = linspace(-L,L,100);
+z = zeros(1,100);
+for i=1:100
+   z(i) =  EI([x1(i)], min_y, k);
+end
+
+plot(x1, z)
 
 
 
